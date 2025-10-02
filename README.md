@@ -2,6 +2,9 @@
 
 A small Node/Express project that builds a multi-page website about the Solar System using **JavaScript**, **EJS templates**, **HTML**, **CSS**, and external **APIs**. It demonstrates routing, serving static assets, templating with partials, and consuming web APIs (Unsplash + NASA APOD).
 
+> Live demo: https://express-solar-system.r-siddiq.tech/
+> Additonal context: https://www.rsiddiq.com/internet-programming.html
+
 ## Highlights
 
 - **Node.js + Express**: routes, middleware, static assets
@@ -30,13 +33,13 @@ A small Node/Express project that builds a multi-page website about the Solar Sy
 │   ├── earth.ejs            # Example planet page (uses npm-solarsystem)
 │   └── partials/
 │       ├── head.ejs
-│       ├── nav.ejs          # (if present)
-│       └── footer.ejs       # (if present)
+│       ├── nav.ejs
+│       └── footer.ejs
 ├── public/
 │   ├── css/
 │   │   └── styles.css       # External stylesheet
-│   └── img/                 # Static images (if any)
-├── .env                     # Local environment variables (not committed)
+│   └── img/                 # Static images
+├── .env                     # Place API keys here
 ├── .env.example             # Template for required env vars
 └── .gitignore
 ```
