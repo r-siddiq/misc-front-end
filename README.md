@@ -2,7 +2,7 @@
 
 A responsive web application for finding earthquake data using the USGS API. The app allows users to search for earthquakes based on date range, magnitude, and location, and displays the results on a separate page.
 
-  - **Live demo:** [r-siddiq.tech/Quake-Finder](https://www.google.com/search?q=https://r-siddiq.tech/Quake-Finder)
+  - **Live demo:** [r-siddiq.tech/Quake-Finder](https://r-siddiq.tech/Quake-Finder)
   - **Additional context:** [www.rsiddiq.com/internet-programming.html](https://www.rsiddiq.com/internet-programming.html)
   - **Scope:** Frontend-only, static site
   - **Tech:** HTML5, CSS3, JavaScript (no dependencies)
