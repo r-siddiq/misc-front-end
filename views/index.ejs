@@ -1,0 +1,72 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+
+    <h1> Quote Finder </h1>
+    <form method="Get"action="/searchByKeyword">
+        Keyword:
+        <input type="text" name="keyword">
+        <button>Search by Keyword</button>
+    </form>
+
+    <br>
+
+    <form action="/searchByAuthor">
+        <%= "Author: " %>
+        <select name="authorId">
+            <% for (author of authors) { %>
+                <option value="<%= author.authorId %>">
+                    <%= author.firstName %> <%= author.lastName %>
+                </option>
+            <% } %>
+        </select>
+        <button>Search by Author</button>
+    </form>
+
+    <br>
+
+    <form action="/searchProfession">
+        <%= "Profession: " %>
+        <select name="profession">
+            <% for (profession of professions) { %>
+                <option value="<%= profession.profession %>">
+                    <%= profession.profession %>
+                </option>
+            <% } %>
+        </select>
+        <button>Search by Profession</button>
+    </form>
+
+    <br>
+
+    <form action="/searchByLikes" method="get">
+        <label for="minLikes">Min Likes:</label>
+        <input type="number" id="minLikes" name="minLikes" required>
+      
+        <label for="maxLikes">Max Likes:</label>
+        <input type="number" id="maxLikes" name="maxLikes" required>
+      
+        <button>Search by Likes</button>
+    </form>
+
+    <br>
+
+    <form action="/searchByCategory">
+        <label>Category:</label>
+        <select name="category">
+            <% for (let category of categories) { %>
+                <option value="<%= category.category %>">
+                    <%= category.category %>
+                </option>
+            <% } %>
+        </select>
+        <button>Search by Category</button>
+    </form>
+
+    <br>
+
+    <%- include('partials/footer.ejs') %>
+
+</body>
+
+</html>
