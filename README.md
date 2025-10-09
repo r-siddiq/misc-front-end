@@ -1,115 +1,94 @@
 # Inspira Find — Quote Finder (Node.js + Express + EJS + MySQL)
 
-**Live demo:** https://inspira-find.r-siddiq.tech/  
-**Additional context:** https://www.rsiddiq.com/internet-programming.html  
-**Scope:** A server-rendered quotes search app with MySQL-backed filtering, Bootstrap UI, and author detail modals.
+![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5-black)
+![MySQL](https://img.shields.io/badge/MySQL-8%2B-4479A1?logo=mysql&logoColor=white)
+![EJS](https://img.shields.io/badge/Templating-EJS-8A2BE2)
 
 ## Overview
 
-Inspira Find is a server-side rendered web application that lets users explore inspirational quotes by **keyword**, **author**, **category**, **profession**, and **like range**. It uses **Express 5**, **EJS templates**, and a **MySQL** database seeded from `seed_data.sql`. The interface is styled with **Bootstrap 5**, and author details are displayed in a **modal** powered by a lightweight client-side script.
+Inspira Find is a server-side rendered web application that lets users explore inspirational quotes. The application is divided into two distinct portals: a minimal landing page (/) that links to separate User (/user) and Admin (/admin) sections.
 
-## Technical Highlights
+The User portal allows searching for inspirational quotes by **keyword**, **author**, **profession**, **category**, and **likes**. It uses **Express 5**, **EJS**, and a **MySQL** database (seeded from `seed_data.sql`). The UI is styled with **Bootstrap 5** and earch results feature links that open a Bootstrap modal window, which is populated with detailed author information via an AJAX request.
 
-- **Backend (Node.js + Express):**
-  - Express app configured in `index.mjs` with `express.static` for assets and `express.urlencoded` for form parsing.
-  - MySQL **connection pool** via `mysql2/promise`, configured from environment variables with **dotenv**.
-  - Parameterized SQL queries prevent injection; results are rendered to EJS templates.
+The Admin portal provides full CRUD (**Create**, **Read**, **Update**, **Delete**) functionality for both Authors and Quotes through a series of dedicated views. It features a distinct layout with a left sidebar for navigation.
 
-- **Database (MySQL):**
-  - Schema and sample data defined in `seed_data.sql` including tables: `q_authors` and `q_quotes`.
-  - Example fields include `profession`, `category`, `likes`, with **NATURAL JOIN** across `q_quotes` and `q_authors` for lookups.
+> **Live demo:** https://inspira-find.r-siddiq.tech/  
+> **Additional context:** https://www.rsiddiq.com/internet-programming.html
 
-- **Templating (EJS):**
-  - Views in `/views` with reusable partials (`partials/header.ejs`, `partials/footer.ejs`).
-  - `index.ejs` provides multiple search forms; `results.ejs` lists quotes and binds author links to modal behavior.
+---
 
-- **Frontend (HTML, CSS, Bootstrap 5):**
-  - `public/css/styles.css` supplies a clean, responsive layout.
-  - `public/js/scripts.js` registers click handlers for author links and populates a **Bootstrap modal** with author details via `/api/author/:id`.
+## Table of Contents
+- [Features](#features)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Quick Start](#quick-start)
+- [Configuration](#configuration)
+- [Database](#database)
+- [Project Structure](#project-structure)
+- [Endpoints](#endpoints)
+  - [User Search](#user-search)
+  - [Admin CRUD](#admin-crud)
+  - [Utilities & Health](#utilities--health)
+- [Security Notes](#security-notes)
 
-- **API-style endpoints:**
-  - `GET /api/author/:id` returns author metadata (JSON) for the modal.
-  - `GET /allAuthors` exposes a simple JSON list.
-  - `GET /dbTest` validates database connectivity.
+---
+
+## Features
+- **Multi‑criteria search**: keyword, author, profession, category, likes range.
+- **Author details modal**: fetches `/api/author/:id` to show portrait, profession, dates, country, bio.
+- **Admin portal**: create, list, update, and delete authors and quotes.
+- **Split styling**: dedicated CSS for user vs admin views.
+- **Health checks** and DB test endpoint.
+
+## Architecture
+- **Server**: Express 5 with EJS views.
+- **DB**: MySQL using `mysql2/promise` and a connection pool.
+- **Views**: Bootstrap 5 + custom CSS bundles (user/admin).
+- **Client JS**: lightweight script for author modal on results page.
 
 ## Tech Stack
+- **Runtime & Framework**: Node.js (LTS), Express 5
+- **Templating**: EJS
+- **Database**: MySQL (`mysql2`)
+- **Styling**: Bootstrap 5 (CDN) + `/public/css/user.css` and `/public/css/admin.css`
+- **Config**: dotenv
 
-- **Runtime & Frameworks:** Node.js, Express 5
-- **Templating:** EJS
-- **Database:** MySQL (mysql2/promise)
-- **Styling/UI:** Bootstrap 5, custom CSS
-- **Languages:** HTML, CSS, JavaScript (client + server)
-- **Utilities:** dotenv
-- **Dependencies:** dotenv ^17.2.3, ejs ^3.1.10, express ^5.1.0, mysql2 ^3.14.0
+---
 
------
+## Quick Start
 
-## Project Structure
+### Prerequisites
+- **Node.js** 18+ (LTS recommended)
+- **MySQL** 8+ (or compatible server)
 
-```
-.
-├── index.mjs                # Core Express server: setup, database connection, and routes
-├── package.json             # Project metadata and dependencies
-├── seed_data.sql            # SQL script for database schema and seed data
-├── views/
-│   ├── index.ejs            # Home page with search forms
-│   ├── results.ejs          # Page to display search results
-│   └── partials/
-│       ├── header.ejs       # Reusable HTML head with metadata and CSS/JS links
-│       └── footer.ejs       # Reusable footer
-├── public/
-│   ├── css/
-│   │   └── styles.css       # Custom stylesheet
-│   └── js/
-│       └── scripts.js       # Client-side script for author info modal
-├── .env                     # Secure file for database credentials (not in version control)
-└── .env.example             # Template for required environment variables
-```
-
------
-
-## Key Routes & Features
-
-- `GET /` — Landing page with forms to search:
-  - **Keyword** → `/searchByKeyword?keyword=...`
-  - **Author** → `/searchByAuthor?authorId=...`
-  - **Profession** → `/searchProfession?profession=...`
-  - **Likes range** → `/searchByLikesRange?minLikes=..&maxLikes=..`
-  - **Category** → `/searchByCategory?category=...`
-- `GET /api/author/:id` — JSON payload for author details (used by modal).
-- `GET /allAuthors` — Returns all authors as JSON.
-- `GET /dbTest` — Returns `CURDATE()` to confirm DB connectivity.
-
-> All search endpoints use **prepared statements** with parameterized inputs via `mysql2/promise`.
-
------
-
-## Setup and Installation
-
-### 1\. Prerequisites
-
-  * **Node.js** (v18.0.0 or higher is recommended)
-  * **MySQL Server**: A running instance of MySQL. This can be a local installation, a Docker container, or a cloud-based service.
-
-### 2\. Install Dependencies
-
-Navigate to the project's root directory and run the following command to install all required packages from `package.json`:
-
+### Install
 ```bash
 npm install
 ```
 
-### 3\. Set Up Environment Variables
-
-This project requires a connection to a MySQL database.
-
-1.  Create a new file named **`.env`** in the project root.
-2.  Copy the contents of **`.env.example`** into your new **`.env`** file.
-3.  Replace the placeholder values with your actual database credentials.
-
-#### .env.example
-
+### Configure Database
+Create a database and load the seed script:
+```sql
+CREATE DATABASE inspira_find;
+USE inspira_find;
+-- run contents of seed_data.sql
 ```
+
+### Environment Variables
+Copy `.env.example` to `.env` and fill in values (see [Configuration](#configuration)).
+
+### Run
+```bash
+node index.mjs
+# open http://localhost:3000
+```
+
+---
+
+## Configuration
+Create `.env` in the repo root:
+```ini
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=your_username
@@ -117,38 +96,119 @@ DB_PASSWORD=your_password
 DB_NAME=inspira_find
 DB_CONNECTION_LIMIT=10
 ```
+- Server port is **3000** (configured in `index.mjs`).
+- A MySQL **connection pool** is used (defaults to 10 when not provided).
 
-### 4\. Create and Seed the Database
+---
 
-You can set up the database in one of the following ways:
+## Database
 
-  * **Local MySQL Server:**
+### Tables
+**`q_authors`**
+| Column     | Type         | Notes                   |
+|------------|--------------|-------------------------|
+| authorId   | MEDIUMINT(9) | PK AUTO_INCREMENT       |
+| firstName  | VARCHAR(25)  | NOT NULL                |
+| lastName   | VARCHAR(25)  | NOT NULL                |
+| dob        | DATE         | NOT NULL                |
+| dod        | DATE         | NULL allowed            |
+| sex        | CHAR(1)      | NOT NULL                |
+| profession | VARCHAR(50)  | NOT NULL                |
+| country    | VARCHAR(25)  | NOT NULL                |
+| portrait   | VARCHAR(200) | NOT NULL (URL)          |
+| biography  | VARCHAR(500) | NOT NULL                |
 
-    1.  Log in to your MySQL server.
-    2.  Create a new database: `CREATE DATABASE inspira_find;`
-    3.  Use the new database: `USE inspira_find;`
-    4.  Run the `seed_data.sql` script to create the tables and insert the sample data. You can do this by executing the file's contents in your MySQL client.
+**`q_quotes`**
+| Column   | Type         | Notes                        |
+|----------|--------------|------------------------------|
+| quoteId  | MEDIUMINT(9) | PK AUTO_INCREMENT            |
+| quote    | VARCHAR(200) | NOT NULL                     |
+| authorId | SMALLINT(6)  | NOT NULL (joins authorId)    |
+| category | VARCHAR(200) | NOT NULL                     |
+| likes    | INT(11)      | DEFAULT NULL                 |
 
-  * **Docker:**
+**Notes**
+- Tables are created as **MyISAM**; no foreign‑key constraints.
+- Queries use a **`NATURAL JOIN`** over `authorId` across `q_quotes` and `q_authors`.
 
-    1.  If you have Docker installed, you can spin up a MySQL container.
-    2.  Connect to the container's MySQL instance and follow the steps for a local server.
+---
 
-### 5\. Run the Server
-
-Start the Express server with the following command:
-
-```bash
-node index.mjs
+## Project Structure
+```text
+inspira-find/
+├─ index.mjs                      # Express app, routes, DB pool, cssBundle toggle
+├─ package.json                   # express, ejs, mysql2, dotenv
+├─ seed_data.sql                  # schema + seed rows
+├─ .env.example                   # copy -> .env (do not commit secrets)
+├─ public/
+│  ├─ css/
+│  │  ├─ admin.css               # Admin-only look & sidebar styles
+│  │  └─ user.css                # User portal look (forms/results)
+│  └─ js/
+│     └─ scripts.js              # Results-page modal: fetch /api/author/:id
+└─ views/
+   ├─ app.ejs                    # Landing: links to /user and /admin
+   ├─ user_index.ejs             # User search forms
+   ├─ admin_index.ejs            # Admin menu (Add/List)
+   ├─ results.ejs                # Search results + Bootstrap modal shell
+   ├─ authorList.ejs             # Admin: list authors (update/delete)
+   ├─ quoteList.ejs              # Admin: list quotes (update/delete)
+   ├─ newAuthor.ejs              # Admin: create author
+   ├─ editAuthor.ejs             # Admin: update author
+   ├─ newQuote.ejs               # Admin: create quote
+   ├─ editQuote.ejs              # Admin: update quote
+   └─ partials/
+      ├─ header.ejs              # Picks admin.css/user.css via res.locals.cssBundle
+      ├─ footer.ejs
+      └─ sidebar.ejs             # Admin-only navigation
 ```
 
-The server will start, and you can access the application in your browser at `http://localhost:3000`.
+---
 
------
+## Endpoints
 
-## Security & Reliability Notes
+### User Search
+- `GET /` — Landing page.
+- `GET /user` — User portal with DB‑driven dropdowns.
+- `GET /searchByKeyword?keyword=...` — Filter quotes by text match.
+- `GET /searchByAuthor?authorId=...`
+- `GET /searchProfession?profession=...`
+- `GET /searchByLikes?minLikes=..&maxLikes=..` — Likes range filter.
+- `GET /searchByCategory?category=...`
+- `GET /api/author/:id` — JSON author record for the results modal.
 
-- Uses **connection pooling** for efficient database access.
-- Employs **prepared statements** to reduce SQL injection risks.
-- Secrets are provided via **dotenv**; ensure `.env` is not committed to VCS.
-- Bootstrap assets are served from a trusted CDN; `public/` contains local CSS/JS.
+**Example**
+```bash
+curl "http://localhost:3000/searchByKeyword?keyword=inspire"
+```
+
+### Admin CRUD
+- **Home & Lists**
+  - `GET /admin` — Admin menu.
+  - `GET /authors` — List authors.
+  - `GET /quotes` — List quotes.
+- **Create**
+  - `GET /author/new` → form; `POST /author/new` → insert into `q_authors`.
+  - `GET /quote/new` → form; `POST /quote/new` → insert into `q_quotes`.
+- **Update**
+  - `GET /author/edit?authorId=...` → load form; `POST /author/edit` → update author.
+  - `GET /quote/edit?quoteId=...` → load form; `POST /quote/edit` → update quote.
+- **Delete**
+  - `GET /author/delete?authorId=...` → delete author.
+  - `GET /quote/delete?quoteId=...` → delete quote.
+
+### Utilities & Health
+- `GET /allAuthors` — JSON list of authors.
+- `GET /dbTest` — DB connectivity via `CURDATE()`.
+- `GET /healthz` — `{ ok: true, db: true|false }`.
+
+---
+
+## Security Notes
+- **SQL Injection**: All database calls use prepared statements via mysql2/promise, mitigating the risk of SQL injection.
+- **Authentication/Authorization**: Admin routes are publicly reachable by default.
+- **HTTP methods**: Deletions are currently triggered via `GET`.
+- **DB engine**: MyISAM lacks FKs/transactions. Consider **InnoDB** if you need referential integrity and transactional safety.
+- **Prepared statements**: All DB calls should use prepared queries (`mysql2/promise`).
+- **Secrets Management**: Database credentials are kept out of version control by using a .env file, which is listed in .gitignore.
+- **Unsafe Deletes**: All delete operations are handled via GET requests (e.g., /author/delete?authorId=...), which is not best practice. These should be converted to use POST or DELETE methods and be protected with CSRF tokens.

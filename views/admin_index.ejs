@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+    <%- include("partials/sidebar") %>
+    
+    <h1>Quote Finder - Admin Section</h1>
+
+    <form action="/author/new">
+        <button>Add Authors</button>
+    </form>
+    <br>
+
+    <form action="/quote/new">
+        <button>Add Quotes</button>
+    </form>
+    <br>
+
+    <form action="/authors">
+        <button>List Authors</button>
+    </form>
+    <br>
+
+    <form action="/quotes">
+        <button>List Quotes</button>
+    </form>
+</body>
+
+<%- include('partials/footer.ejs') %>
+
+</html>
