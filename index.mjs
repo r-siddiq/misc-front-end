@@ -80,7 +80,6 @@ app.get('/user', async (req, res, next) => {
 
 /* =========================
     USER SEARCH / API ROUTES
-    (keep UNPREFIXED, user.css)
 ========================= */
 
 app.get("/searchByKeyword", async (req, res, next) => {

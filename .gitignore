@@ -11,6 +11,8 @@ pnpm-debug.log*
 .env
 .env.*
 !.env.example
+.my.cnf
+!.my.cnf.example
 
 # Logs & PIDs
 logs/

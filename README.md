@@ -212,3 +212,68 @@ curl "http://localhost:3000/searchByKeyword?keyword=inspire"
 - **Prepared statements**: All DB calls should use prepared queries (`mysql2/promise`).
 - **Secrets Management**: Database credentials are kept out of version control by using a .env file, which is listed in .gitignore.
 - **Unsafe Deletes**: All delete operations are handled via GET requests (e.g., /author/delete?authorId=...), which is not best practice. These should be converted to use POST or DELETE methods and be protected with CSRF tokens.
+
+## Addendum: DB Restore Setup for Hosted App (with Local Option)
+
+This project includes a **data-only restore** flow intended for the hosted application. The same flow can be run **locally** with `./restore_db.sh` if you have a MySQL client installed.
+
+### What’s added to the repo
+
+* **`.my.cnf.example`**
+  Example MySQL client config (project-scoped). Copy it to `.my.cnf` and fill in credentials for the target DB.
+
+  ```ini
+  # .my.cnf.example — copy to .my.cnf (do not commit secrets)
+  [client]
+  user=YOUR_DB_USER
+  password=YOUR_DB_PASSWORD
+  host=YOUR_DB_HOST
+  port=3306
+  database=YOUR_DB_NAME
+  ```
+
+  Add `.my.cnf` to `.gitignore`.
+
+* **`restore_db.sh`**
+  A portable bash script that:
+
+  1. extracts full multi-line `INSERT` statements from `seed_data.sql` into `seed_inserts_only.sql`,
+  2. clears existing rows (child → parent), and
+  3. re-inserts the seed rows.
+     Works with limited privileges (SELECT/INSERT/DELETE). No schema drop/create required.
+
+* **`seed_inserts_only.sql`** (generated)
+  A derived file built by `restore_db.sh` from `seed_data.sql`. Not meant to be edited by hand; it’s created automatically on each run.
+
+### Running locally
+
+1. Ensure a MySQL client is installed and available on your PATH (e.g., `mysql` or `mysql.exe`).
+2. Create `.my.cnf` from `.my.cnf.example` and set your local DB credentials.
+3. Execute:
+
+```bash
+chmod +x restore_db.sh
+./restore_db.sh
+```
+
+> On Windows (Git Bash), you can specify the client path:
+>
+> ```bash
+> MYSQL_BIN="/c/Program Files/MySQL/MySQL Server 8.0/bin/mysql.exe" ./restore_db.sh
+> ```
+
+### Using in hosting (cron)
+
+On your server, keep `.my.cnf` alongside the project (filled with server DB creds) and schedule a cron to refresh data periodically. Example cron command:
+
+```bash
+/bin/bash -lc 'cd /path/to/project && MYSQL_BIN=/usr/bin/mysql ./restore_db.sh >> /path/to/logs/cron_restore.log 2>&1'
+```
+
+Choose the frequency you prefer (e.g., daily at 03:00). Review logs as needed.
+
+### Security & hygiene
+
+* **Do not commit** real `.my.cnf` or `.env`. Keep only the `*.example` templates in version control.
+* Lock down file permissions on the server (e.g., `chmod 600 .my.cnf`).
+* This flow performs **data-only** resets. For schema changes, update `seed_data.sql` and apply them separately.
