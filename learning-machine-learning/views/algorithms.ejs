@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs') %>
+<body>
+    <header>
+        <h1> ML Algorithms </h1>
+    </header>
+    <hr>
+
+    <%- include('partials/nav.ejs') %>
+    <hr>
+
+    <main>
+        <p>Machine learning algorithms are the backbone of predictive models, enabling systems to learn from data. This page explores three primary categories: supervised, unsupervised, and reinforcement learning.</p>
+        
+        <h2>Supervised Learning</h2>
+        <p>Supervised learning uses labeled data to train models that predict outcomes. The model minimizes error by adjusting its parameters based on known outputs.</p>
+        <p>Examples include:</p>
+        <ul>
+            <li><strong>Linear Regression</strong>: Predicts continuous values (e.g., house prices).</li>
+            <li><strong>Logistic Regression</strong>: Classifies binary outcomes (e.g., spam vs. not spam).</li>
+            <li><strong>Decision Trees</strong>: Splits data into branches for interpretable predictions.</li>
+            <li><strong>Neural Networks</strong>: Models complex patterns for tasks like image recognition.</li>
+        </ul>
+
+        <p><strong>Below is a Python example using scikit-learn for linear regression:</strong></p>
+
+        <pre><code>
+            from sklearn.linear_model import LinearRegression
+            model = LinearRegression()
+            fit(X_train, y_train)
+            predictions = model.predict(X_test)
+        </code></pre>
+
+        <p><strong>Applications</strong>: Fraud detection, medical diagnosis.</p>
+        
+        <h2>Unsupervised Learning</h2>
+        <p>Unsupervised learning identifies patterns in unlabeled data without predefined outputs.</p>
+        <p>Examples include:</p>
+        <ul>
+            <li><strong>K-Means Clustering</strong>: Groups data into k clusters.</li>
+            <li><strong>PCA</strong>: Reduces dimensionality while retaining variance.</li>
+            <li><strong>Autoencoders</strong>: Neural networks for feature extraction.</li>
+        </ul>
+
+        <p><strong>Applications</strong>: Customer segmentation, anomaly detection.</p>
+
+        <div class="video-container">
+            <iframe 
+                width="1196" height="673" src="https://www.youtube.com/embed/W01tIRP_Rqs" title="Supervised vs. Unsupervised Learning" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+        
+        <h2>Reinforcement Learning</h2>
+        <p>Reinforcement learning trains agents to maximize rewards through trial and error in an environment.</p>
+        <p>Examples include:</p>
+
+        <ul>
+            <li><strong>Q-Learning</strong>: Learns action values in discrete states.</li>
+            <li><strong>Deep Q-Networks</strong>: Extends Q-learning with neural networks.</li>
+            <li><strong>Policy Gradients</strong>: Optimizes decision policies directly.</li>
+        </ul>
+
+        <p>Applications: Robotics, game AI (e.g., AlphaGo).</p>
+
+        <div class="video-container">
+            <iframe 
+                width="1196" height="673" src="https://www.youtube.com/embed/L_4BPjLBF4E" title="AI Learns to Walk 
+                (deep reinforcement learning)" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </main>
+    <hr>
+
+</body>
+<%- include('partials/footer.ejs') %>
+</html>

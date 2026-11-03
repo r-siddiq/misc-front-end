@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs') %>
+<body>
+    <header>
+        <h1> Machine Learning </h1>
+    </header>
+    <hr>
+
+    <%- include('partials/nav.ejs') %>
+    <hr>
+
+    <main>
+        <p>
+            Machine Learning is the silent architect of a new intelligence, where patterns emerge from chaos and predictions arise 
+            from data’s depths. It is not merely a tool but a mirror to human curiosity, reflecting our quest to teach machines what 
+            we ourselves struggle to define: understanding. Rooted in mathematics and fueled by computation, it bridges the tangible 
+            and the abstract, reshaping reality one algorithm at a time.
+        </p>
+
+        <section>
+            <h2>Supervised Learning</h2>
+            <p>
+                Supervised learning algorithms train on labeled datasets to predict outcomes. Examples include linear regression, logistic 
+                regression, and decision trees.
+            </p>
+            <img src="img/supervised_learning.jpg" alt="Supervised Learning">
+        </section>
+
+        <section>
+            <h2>Unsupervised Learning</h2>
+            <p>Unsupervised learning finds hidden patterns from unlabeled data. Techniques include PCA, clustering, and autoencoders.</p>
+            <img src="img/unsupervised_learning.jpg" alt="Unsupervised Learning">
+        </section>
+
+        <section>
+            <h2>Reinforcement Learning</h2>
+            <p>Reinforcement learning trains systems through rewards and penalties. Popular methods include Q-learning, DQN, and policy gradients.</p>
+            <img src="img/reinforcement_learning.jpg" alt="Reinforcement Learning">
+        </section>
+    </main> 
+    <hr>
+
+</body>
+<%- include('partials/footer.ejs') %>
+</html>
