@@ -1,0 +1,9 @@
+body {
+    font-size: 1.2rem;
+}
+
+#submitBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
