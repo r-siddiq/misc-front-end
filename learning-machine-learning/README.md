@@ -4,7 +4,6 @@ This project is a multi-page educational website built with **Node.js** and **Ex
 
 The application showcases a modern server-side rendering (SSR) architecture, secure API key management, and a custom-styled, responsive user interface.
 
-  - **Live demo:** [learning-machine-learning.r-siddiq.tech/](https://learning-machine-learning.r-siddiq.tech/)
   - **Additional context:** [www.rsiddiq.com/internet-programming.html](https://www.rsiddiq.com/internet-programming.html)
   - **Scope:** A dynamic web application with a server-side rendering (SSR) architecture.
 

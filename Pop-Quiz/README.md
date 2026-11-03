@@ -3,7 +3,6 @@
 A lightweight, **frontend-only** quiz built with **HTML, vanilla JavaScript, and Bootstrap**.  
 It renders ten US-geography questions using a mix of inputs (text, select, checkboxes, and radio buttons), gives immediate, color-coded feedback with icons, and tracks **total attempts** via `localStorage`.
 
-- **Live demo:** https://www.r-siddiq.tech/Pop-Quiz/
 - **Additonal context:** https://www.rsiddiq.com/internet-programming.html
 - **Tech:** HTML5, Bootstrap 5 (CDN), Underscore.js (CDN for shuffling), Vanilla JS
 
@@ -55,9 +54,6 @@ No dependencies or build required.
 - **Option B (recommended):** Serve statically to avoid any browser restrictions:
   - Python 3: `python -m http.server` and open `http://localhost:8000/`
   - Node npx: `npx http-server .` and open the printed URL
-
-### 2) Visit Demo Site
-  - https://www.r-siddiq.tech/Pop-Quiz/
 
 ---
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html> 
+<html> 
+<%- include('partials/head.ejs') -%>
+<style>
+    html { background: none !important; }
+    html, body { min-height: 100vh; }
+    body {
+        background: url("<%= randomImage %>") center center / cover no-repeat fixed !important;
+    }
+</style>
+
+<body> 
+    <h1>The Solar System</h1> 
+    <%- include('partials/nav.ejs') -%>
+    <img src="/img/solar-system.jpg"> 
+
+</body> 
+<%- include('partials/footer.ejs') -%>
+</html> 

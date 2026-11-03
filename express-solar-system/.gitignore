@@ -1,0 +1,52 @@
+# Node / Express
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data / pids
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage / reports
+coverage/
+.nyc_output/
+
+# Build output / caches
+dist/
+build/
+.tmp/
+.temp/
+.cache/
+.parcel-cache/
+.next/
+out/
+
+# Env files (keep secrets out of git)
+.env
+.env.local
+.env.*.local
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.iml
+
+# Misc
+*.orig
+*.rej
+*.swp
+*.swo
+~$*

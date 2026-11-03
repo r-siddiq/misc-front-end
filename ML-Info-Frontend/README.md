@@ -2,7 +2,6 @@
 
 A lightweight, **frontend-only**, **multi-page static site** introducing core **machine learning** concepts—learning paradigms, algorithms, model evaluation, and future trends—using **HTML5** and **CSS3** (no build step).
 
-- **Live demo:** https://www.r-siddiq.tech/ML-Info-Frontend/
 - **Additonal context:** https://www.rsiddiq.com/internet-programming.html
 - **Scope:** Frontend-only, static content
 - **Tech:** HTML5, CSS3
