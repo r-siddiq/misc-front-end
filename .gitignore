@@ -1,0 +1,25 @@
+# Dependencies, build output, and generated files
+**/node_modules/
+**/dist/
+**/build/
+**/.cache/
+**/coverage/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+
+# Local credentials and settings
+**/.env
+**/.env.*
+!**/.env.example
+**/.my.cnf
+!**/.my.cnf.example
+/Quake-Finder/config.js
+
+# Operating system and editor files
+**/.DS_Store
+**/Thumbs.db
+**/desktop.ini
+**/.vscode/
+**/.idea/

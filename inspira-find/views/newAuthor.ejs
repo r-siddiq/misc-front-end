@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+    <%- include("partials/sidebar") %>
+    
+    <h1>Adding a new Author</h1>
+        
+    <form method="POST" action="/author/new">
+        First Name: <input type="text" name="fName" required><br>
+        Last Name: <input type="text" name="lName" required><br>
+        Date of Birth: <input type="date" name="birthDate" required><br>
+        Date of Death: <input type="date" name="dod" required><br>
+        Sex: <input type="text" name="sex" maxlength="1" required><br>
+        Profession: <input type="text" name="profession" required><br>
+        Country: <input type="text" name="country" required><br>
+        Portrait URL: <input type="url" name="portrait" required><br>
+        Biography: <textarea name="biography" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <% if (typeof message != 'undefined') { %>
+        <h3><%= message %></h3>
+    <% } %>
+</body>
+
+<%- include('partials/footer.ejs') %>
+
+</html>

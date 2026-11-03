@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- 
+          Rahim Siddiq
+          CST 336 Internet Programming
+          Homework 1 HTML and CSS
+          03/06/2025
+        -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Model Evaluation and Optimization</title>
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <header>
+            <h1> Model Evaluation and Optimization </h1>
+        </header>
+
+        <hr>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="algorithms.html">Algorithms</a>
+            <a href="evaluation.html" class="current">Evaluation</a>
+            <a href="future.html">Future</a>
+        </nav>
+
+        <hr>
+
+        <br>
+
+        <main>
+            <p>
+                Ensuring machine learning models perform well requires robust evaluation and optimization techniques. This page covers key methods to measure and enhance model accuracy and generalization.
+            </p>
+
+            <h2>Evaluation Metrics</h2>
+            <p>Metrics quantify model performance. For classification:</p>
+
+            <ul>
+                <li><strong>Accuracy</strong>: Correct predictions / total predictions.</li>
+                <li><strong>Precision</strong>: True positives / (true positives + false positives).</li>
+                <li><strong>Recall</strong>: True positives / (true positives + false negatives).</li>
+                <li><strong>F1-Score</strong>: 2 * (precision * recall) / (precision + recall).</li>
+                <li><strong>ROC-AUC</strong>: Area under the ROC curve.</li>
+            </ul>
+
+            <p>For regression: Mean Squared Error (MSE), R-squared.</p>
+            <img src="img/confusion_matrix.jpg" alt="Confusion Matrix">
+            
+            <h2>Cross-Validation</h2>
+
+            <p>Cross-validation tests model generalization. In k-fold cross-validation, data is split into k subsets, training on k-1 and testing on the remaining subset, repeated k times.</p>
+            <p>Benefit: Reduces overfitting risk.</p>
+            <img src="img/kfold_cv.jpg" alt="K-Fold Cross-Validation Diagram">
+            
+            <h2>Hyperparameter Tuning</h2>
+            <p>Hyperparameters (e.g., learning rate) are optimized to boost performance.</p>
+
+            <ul>
+                <li><strong>Grid Search</strong>: Tests all combinations in a grid.</li>
+                <li><strong>Random Search</strong>: Samples randomly from a range.</li>
+                <li><strong>Bayesian Optimization</strong>: Uses probability to target optimal values.</li>
+            </ul>
+
+            <p>Tools like scikit-learn’s GridSearchCV simplify this process.</p>
+        </main>
+
+        <hr>
+
+        <footer>
+            <p>References:
+                <a href="https://scikit-learn.org" target="_blank">scikit-learn</a>,
+                <a href="https://www.ibm.com/cloud/learn/machine-learning-algorithms" target="_blank">IBM</a>,
+                <a href="https://www.weforum.org" target="_blank">World Economic Forum</a>,
+                <a href="https://www.ibm.com" target="_blank">IBM</a>, <a href="https://arxiv.org/abs/1706.03762" target="_blank">Attention is All You Need</a>
+            </p>
+
+            <p>Internet Programming. &copy; 2025 Siddiq</p>
+        </footer>
+
+    </body>
+
+</html>

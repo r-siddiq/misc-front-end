@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs') %>
+<body>
+    <header>
+        <h1> Model Evaluation and Optimization </h1>
+    </header>
+    <hr>
+
+    <%- include('partials/nav.ejs') %>
+    <hr>
+
+    <main>
+        <p>
+            Ensuring machine learning models perform well requires robust evaluation and optimization techniques. This page covers key methods to measure and enhance model accuracy and generalization.
+        </p>
+
+        <h2>Evaluation Metrics</h2>
+        <p>Metrics quantify model performance. For classification:</p>
+
+        <ul>
+            <li><strong>Accuracy</strong>: Correct predictions / total predictions.</li>
+            <li><strong>Precision</strong>: True positives / (true positives + false positives).</li>
+            <li><strong>Recall</strong>: True positives / (true positives + false negatives).</li>
+            <li><strong>F1-Score</strong>: 2 * (precision * recall) / (precision + recall).</li>
+            <li><strong>ROC-AUC</strong>: Area under the ROC curve.</li>
+        </ul>
+
+        <p>For regression: Mean Squared Error (MSE), R-squared.</p>
+        <img src="img/confusion_matrix.jpg" alt="Confusion Matrix">
+        
+        <h2>Cross-Validation</h2>
+
+        <p>Cross-validation tests model generalization. In k-fold cross-validation, data is split into k subsets, training on k-1 and testing on the remaining subset, repeated k times.</p>
+        <p>Benefit: Reduces overfitting risk.</p>
+        <img src="img/kfold_cv.jpg" alt="K-Fold Cross-Validation Diagram">
+        
+        <h2>Hyperparameter Tuning</h2>
+        <p>Hyperparameters (e.g., learning rate) are optimized to boost performance.</p>
+
+        <ul>
+            <li><strong>Grid Search</strong>: Tests all combinations in a grid.</li>
+            <li><strong>Random Search</strong>: Samples randomly from a range.</li>
+            <li><strong>Bayesian Optimization</strong>: Uses probability to target optimal values.</li>
+        </ul>
+
+        <p>Tools like scikit-learn’s GridSearchCV simplify this process.</p>
+    </main>
+    <hr>
+
+</body>
+<%- include('partials/footer.ejs') %>
+</html>
