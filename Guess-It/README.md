@@ -2,6 +2,7 @@
 
 A tiny, **frontend-only** number guessing game. Pick a number between **1–99** and try to guess it in **7 attempts**. Built with **HTML**, **CSS**, and **vanilla JavaScript**; no frameworks, no build step.
 
+- **Live demo:** https://www.r-siddiq.tech/Guess-It/
 - **Additional context:** https://www.rsiddiq.com/internet-programming.html
 - **Scope:** Frontend-only, static site
 - **Tech:** HTML5, CSS3, JavaScript (no dependencies)

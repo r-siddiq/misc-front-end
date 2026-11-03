@@ -2,6 +2,7 @@
 
 A clean, responsive sign-up form project using HTML, CSS, JavaScript, and Bootstrap; includes client-side validation, API-driven data lookups, username availability checks, and password suggestions.
 
+- **Live demo:** https://www.r-siddiq.tech/Sign-Up-Page/
 - **Additional context:** https://www.rsiddiq.com/internet-programming.html
 - **Scope:** Frontend-only, static site
 - **Tech:** HTML5, CSS3, JavaScript (no dependencies)
@@ -51,6 +52,9 @@ Some browsers throttle local assets. Use a simple local server:
   npx http-server .
   ```
   Follow the printed URL.
+
+### 2) Visit Demo Site
+  - https://www.r-siddiq.tech/Sign-Up-Page/
 
 ---
 

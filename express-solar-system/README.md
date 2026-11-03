@@ -2,6 +2,7 @@
 
 A small Node/Express project that builds a multi-page website about the Solar System using **JavaScript**, **EJS templates**, **HTML**, **CSS**, and external **APIs**. It demonstrates routing, serving static assets, templating with partials, and consuming web APIs (Unsplash + NASA APOD).
 
+> Live demo: https://express-solar-system.r-siddiq.tech/
 > Additonal context: https://www.rsiddiq.com/internet-programming.html
 
 ## Highlights

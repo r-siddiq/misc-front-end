@@ -13,6 +13,7 @@ The User portal allows searching for inspirational quotes by **keyword**, **auth
 
 The Admin portal provides full CRUD (**Create**, **Read**, **Update**, **Delete**) functionality for both Authors and Quotes through a series of dedicated views. It features a distinct layout with a left sidebar for navigation.
 
+> **Live demo:** https://inspira-find.r-siddiq.tech/  
 > **Additional context:** https://www.rsiddiq.com/internet-programming.html
 
 ---
