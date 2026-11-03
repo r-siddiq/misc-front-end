@@ -1,0 +1,10 @@
+# Example MySQL client configuration for restore_db.sh and backup_db.sh
+# Copy this to ./inspirafind/.my.cnf and fill in your real credentials.
+# NOTE: DO NOT commit the your credentials to version control.
+
+[client]
+user=your_mysql_username
+password=your_mysql_password
+host=your_mysql_host
+port=3306
+database=your_database_name

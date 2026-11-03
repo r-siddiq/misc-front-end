@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<body>
+    <%- include("partials/sidebar") %>
+
+    <h1>Update/Delete Quotes</h1>
+
+    <% for (let i = 0; i < quotes.length; i++) { %>
+        <p>
+            "<%= quotes[i].quote %>" — <%= quotes[i].authorName %> 
+            [<%= quotes[i].category %>] ❤️ <%= quotes[i].likes %><br>
+            <a href="/quote/edit?quoteId=<%= quotes[i].quoteId %>">UPDATE</a>
+            <a href="/quote/delete?quoteId=<%= quotes[i].quoteId %>">DELETE</a>
+        </p>
+    <% } %>
+</body>
+
+<%- include('partials/footer') %>
+
+</html>
