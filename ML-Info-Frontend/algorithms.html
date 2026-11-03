@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- 
+          Rahim Siddiq
+          CST 336 Internet Programming
+          Homework 1 HTML and CSS
+          03/06/2025
+        -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ML Algorithms</title>
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <header>
+            <h1> ML Algorithms </h1>
+        </header>
+
+        <hr>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="algorithms.html" class="current">Algorithms</a>
+            <a href="evaluation.html">Evaluation</a>
+            <a href="future.html">Future</a>
+        </nav>
+
+        <hr>
+
+        <br>
+
+        <main>
+            <p>Machine learning algorithms are the backbone of predictive models, enabling systems to learn from data. This page explores three primary categories: supervised, unsupervised, and reinforcement learning.</p>
+            
+            <h2>Supervised Learning</h2>
+            <p>Supervised learning uses labeled data to train models that predict outcomes. The model minimizes error by adjusting its parameters based on known outputs.</p>
+            <p>Examples include:</p>
+            <ul>
+                <li><strong>Linear Regression</strong>: Predicts continuous values (e.g., house prices).</li>
+                <li><strong>Logistic Regression</strong>: Classifies binary outcomes (e.g., spam vs. not spam).</li>
+                <li><strong>Decision Trees</strong>: Splits data into branches for interpretable predictions.</li>
+                <li><strong>Neural Networks</strong>: Models complex patterns for tasks like image recognition.</li>
+            </ul>
+
+            <p><strong>Below is a Python example using scikit-learn for linear regression:</strong></p>
+
+            <pre><code>
+                from sklearn.linear_model import LinearRegression
+                model = LinearRegression()
+                fit(X_train, y_train)
+                predictions = model.predict(X_test)
+            </code></pre>
+
+            <p><strong>Applications</strong>: Fraud detection, medical diagnosis.</p>
+            
+            <h2>Unsupervised Learning</h2>
+            <p>Unsupervised learning identifies patterns in unlabeled data without predefined outputs.</p>
+            <p>Examples include:</p>
+            <ul>
+                <li><strong>K-Means Clustering</strong>: Groups data into k clusters.</li>
+                <li><strong>PCA</strong>: Reduces dimensionality while retaining variance.</li>
+                <li><strong>Autoencoders</strong>: Neural networks for feature extraction.</li>
+            </ul>
+
+            <p><strong>Applications</strong>: Customer segmentation, anomaly detection.</p>
+
+            <iframe 
+                width="1196" height="673" src="https://www.youtube.com/embed/W01tIRP_Rqs" title="Supervised vs. Unsupervised Learning" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+            
+            <h2>Reinforcement Learning</h2>
+            <p>Reinforcement learning trains agents to maximize rewards through trial and error in an environment.</p>
+            <p>Examples include:</p>
+
+            <ul>
+                <li><strong>Q-Learning</strong>: Learns action values in discrete states.</li>
+                <li><strong>Deep Q-Networks</strong>: Extends Q-learning with neural networks.</li>
+                <li><strong>Policy Gradients</strong>: Optimizes decision policies directly.</li>
+            </ul>
+
+            <p>Applications: Robotics, game AI (e.g., AlphaGo).</p>
+
+            <iframe 
+                width="1196" height="673" src="https://www.youtube.com/embed/L_4BPjLBF4E" title="AI Learns to Walk 
+                (deep reinforcement learning)" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </main>
+
+        <hr>
+
+        <footer>
+            <p>References:
+                <a href="https://scikit-learn.org" target="_blank">scikit-learn</a>,
+                <a href="https://www.ibm.com/cloud/learn/machine-learning-algorithms" target="_blank">IBM</a>,
+                <a href="https://www.weforum.org" target="_blank">World Economic Forum</a>,
+                <a href="https://www.ibm.com" target="_blank">IBM</a>, <a href="https://arxiv.org/abs/1706.03762" target="_blank">Attention is All You Need</a>
+            </p>
+
+            <p>Internet Programming. &copy; 2025 Siddiq</p>
+        </footer>
+        
+    </body>
+
+</html>
